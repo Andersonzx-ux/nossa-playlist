@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>Nossa Playlist ❤️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/png" href="assets/heart.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Meta tags para SEO e Web App no iPhone -->
+    <meta name="description" content="Um presente especial repleto de memórias, músicas e sentimentos divididos.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Playlist">
+
+    <!-- Favicon / Touch Icon (Fallback) -->
+    <link rel="apple-touch-icon" href="assets/covers/1.png">
+</head>
+
+<body>
+
+    <!-- 1. TELA INICIAL (LANDING PAGE) -->
+    <section id="landing-page" class="landing-container">
+        <div class="landing-card">
+            <div class="heart-indicator">
+                <svg class="pulsing-heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+            </div>
+            <h1 class="landing-title">Oi, meu amor.</h1>
+            <p class="landing-subtitle">Eu fiz uma coisa especial para você...</p>
+            <p class="landing-description">Reuni algumas músicas que me fazem lembrar de você, das nossas conversas, dos
+                sorrisos e dos nossos melhores momentos juntos.</p>
+            <button id="btn-enter-experience" class="btn-primary" aria-label="Entrar na nossa playlist">
+                <span>Abrir Presente</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- 2. APLICAÇÃO PRINCIPAL (PLAYER & CONTEÚDO) -->
+    <main id="main-content" class="main-layout hidden">
+        <header class="app-header">
+            <div class="header-content">
+                <span class="badge">Feito com amor ❤️</span>
+                <h2 class="app-title">Nossa Playlist</h2>
+            </div>
+        </header>
+
+        <div class="app-grid">
+            <!-- Coluna Esquerda / Painel do Player -->
+            <section class="player-panel">
+                <div class="player-card glass">
+                    <!-- Capa da Música -->
+                    <div class="cover-wrapper">
+                        <img id="player-cover" src="assets/covers/1.png" alt="Capa do álbum"
+                            class="player-cover">
+                        <div class="music-note-visualizer hidden" id="visualizer">
+                            <span class="bar bar-1"></span>
+                            <span class="bar bar-2"></span>
+                            <span class="bar bar-3"></span>
+                            <span class="bar bar-4"></span>
+                        </div>
+                    </div>
+
+                    <!-- Informações da Música -->
+                    <div class="song-meta">
+                        <div class="song-details">
+                            <h3 id="player-title" class="song-title">Título da Música</h3>
+                            <p id="player-artist" class="song-artist">Artista da Música</p>
+                        </div>
+                        <button id="btn-favorite" class="btn-icon" aria-label="Curtir música">
+                            <svg id="heart-icon" viewBox="0 0 24 24" class="favorite-heart">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Barra de Progresso -->
+                    <div class="progress-container">
+                        <input type="range" id="progress-bar" class="slider progress-bar" min="0" max="100" value="0"
+                            aria-label="Progresso da música">
+                        <div class="time-info">
+                            <span id="time-current">0:00</span>
+                            <span id="time-total">0:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Controles de Reprodução -->
+                    <div class="player-controls">
+                        <button id="btn-shuffle" class="btn-icon-control" aria-label="Modo aleatório">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M16 3h5v5M4 20l7-7M21 3L9 15M4 4l5 5M16 21h5v-5" />
+                            </svg>
+                        </button>
+
+                        <button id="btn-prev" class="btn-icon-control" aria-label="Música anterior">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M6 6h2v12H6zm3.5 6L18 18V6z" />
+                            </svg>
+                        </button>
+
+                        <button id="btn-play-pause" class="btn-play-pause" aria-label="Reproduzir/Pausar">
+                            <svg id="play-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            <svg id="pause-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
+                                class="hidden">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                            </svg>
+                        </button>
+
+                        <button id="btn-next" class="btn-icon-control" aria-label="Próxima música">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M6 18l8.5-6L6 6zm9-12v12h2V6z" />
+                            </svg>
+                        </button>
+
+                        <button id="btn-repeat" class="btn-icon-control" aria-label="Repetição">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2" id="repeat-icon-svg">
+                                <path d="M17 1l4 4-4 4" />
+                                <path d="M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4" />
+                                <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+                            </svg>
+                            <span id="repeat-badge" class="repeat-badge hidden">1</span>
+                        </button>
+                    </div>
+
+                    <!-- Controle de Volume -->
+                    <div class="volume-container">
+                        <button id="btn-volume-mute" class="btn-icon-volume" aria-label="Mudo/Volume">
+                            <svg id="volume-high-icon" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+                            </svg>
+                            <svg id="volume-mute-icon" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                                stroke="currentColor" stroke-width="2" class="hidden">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                                <line x1="23" y1="9" x2="17" y2="15" />
+                                <line x1="17" y1="9" x2="23" y2="15" />
+                            </svg>
+                        </button>
+                        <input type="range" id="volume-bar" class="slider volume-bar" min="0" max="100" value="80"
+                            aria-label="Controle de volume">
+                    </div>
+                </div>
+
+                <!-- Mensagem Pessoal Vinculada -->
+                <div class="message-card glass" id="message-container">
+                    <h4 class="message-header">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path
+                                d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+                        </svg>
+                        Nota de Amor
+                    </h4>
+                    <p id="personal-message" class="message-text">Esta música não tem mensagem especial associada, mas
+                        foi escolhida com carinho.</p>
+                </div>
+            </section>
+
+            <!-- Coluna Direita / Playlist & Coração Python -->
+            <section class="list-panel">
+                <!-- Seção Playlist -->
+                <div class="playlist-card glass">
+                    <h3 class="panel-title">Músicas Escolhidas</h3>
+                    <div id="playlist-items" class="playlist-items">
+                        <!-- Gerado dinamicamente pelo JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Seção Coração em Python (Ativa) -->
+                <div class="python-heart-card glass">
+                    <h3 class="panel-title">Arte & Código</h3>
+                    <!-- Canvas interativo para renderizar a animação -->
+                    <div class="canvas-container">
+                        <canvas id="heart-canvas"></canvas>
+                        <div class="canvas-overlay">
+                            <span>Clique/Toque para reiniciar 💖</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Rodapé do App -->
+        <footer class="app-footer">
+            <p>Feito para você com muito carinho. &copy; 2026</p>
+        </footer>
+    </main>
+
+    <!-- Scripts da Aplicação -->
+    <script src="data/playlist.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/playlist.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/heart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

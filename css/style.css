@@ -1,0 +1,876 @@
+/* ==========================================================================
+   STYLE SYSTEM: NOSSA PLAYLIST
+   Aesthetics: Romantic, Premium, Glassmorphism, Deep Burgundy & Rose Gold
+   ========================================================================== */
+
+/* Cores e Configurações Globais */
+:root {
+    /* Paleta de Cores Romântica Premium */
+    --bg-gradient-1: #1a0813;
+    --bg-gradient-2: #0f040b;
+    --bg-gradient-3: #2d0b1e;
+    
+    --panel-bg: rgba(255, 255, 255, 0.04);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --panel-bg-hover: rgba(255, 255, 255, 0.08);
+    
+    --accent-primary: #ff4d6d; /* Rosa Vibrante */
+    --accent-secondary: #ff758f; /* Rosa Claro */
+    --accent-gold: #e2b07e; /* Ouro Rosa/Dourado Delicado */
+    --accent-glow: rgba(255, 77, 109, 0.4);
+    
+    --text-primary: #ffffff;
+    --text-secondary: #e2d5de;
+    --text-muted: #a68f9d;
+    
+    /* Fontes */
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    
+    /* Layout */
+    --border-radius-lg: 24px;
+    --border-radius-md: 16px;
+    --border-radius-sm: 8px;
+    
+    --shadow-main: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-quick: all 0.2s ease;
+}
+
+/* Reset e Configurações de Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Remove highlight no mobile */
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    font-family: var(--font-sans);
+    background-color: var(--bg-gradient-2);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Fundo Animado Orgânico */
+body {
+    background: radial-gradient(circle at 10% 20%, var(--bg-gradient-3) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, var(--bg-gradient-1) 0%, transparent 40%),
+                linear-gradient(135deg, var(--bg-gradient-2) 0%, #000000 100%);
+    background-attachment: fixed;
+}
+
+/* Classes Utilitárias */
+.hidden {
+    display: none !important;
+}
+
+.glass {
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-main);
+}
+
+/* Scrollbars Personalizadas */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 77, 109, 0.2);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+}
+
+/* ==========================================================================
+   1. LANDING PAGE STYLE
+   ========================================================================== */
+.landing-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    z-index: 10;
+    position: relative;
+}
+
+.landing-card {
+    max-width: 480px;
+    width: 100%;
+    padding: 40px 32px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius-lg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.heart-indicator {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 77, 109, 0.1);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 77, 109, 0.2);
+}
+
+.pulsing-heart {
+    width: 40px;
+    height: 40px;
+    fill: var(--accent-primary);
+    filter: drop-shadow(0 0 10px var(--accent-primary));
+    animation: pulse 1.8s infinite ease-in-out;
+}
+
+.landing-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.landing-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--accent-secondary);
+    margin-bottom: 24px;
+}
+
+.landing-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.btn-primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, #c92c4d 100%);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 50px;
+    padding: 16px 36px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px var(--accent-glow);
+    transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px var(--accent-primary);
+    filter: brightness(1.1);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+.btn-primary .arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   2. MAIN APPLICATION LAYOUT
+   ========================================================================== */
+.main-layout {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 24px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.app-header {
+    margin-bottom: 32px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge {
+    background: rgba(255, 77, 109, 0.15);
+    color: var(--accent-secondary);
+    border: 1px solid rgba(255, 77, 109, 0.25);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.app-title {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Grid Principal */
+.app-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 28px;
+    align-items: start;
+    flex-grow: 1;
+}
+
+/* ==========================================================================
+   3. PLAYER PANEL (COLUNA ESQUERDA)
+   ========================================================================== */
+.player-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.player-card {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Capa e Visualizador */
+.cover-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+    margin-bottom: 28px;
+}
+
+.player-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.player-card:hover .player-cover {
+    transform: scale(1.03);
+}
+
+/* Equalizador animado em overlay */
+.music-note-visualizer {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    gap: 3px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+    border-radius: var(--border-radius-sm);
+    backdrop-filter: blur(5px);
+    align-items: flex-end;
+    height: 32px;
+}
+
+.bar {
+    width: 3px;
+    background-color: var(--accent-primary);
+    border-radius: 3px;
+    height: 100%;
+    transform-origin: bottom;
+    animation: bounce 1s infinite alternate;
+}
+
+.bar-1 { animation-duration: 0.4s; height: 30%; }
+.bar-2 { animation-duration: 0.7s; height: 60%; }
+.bar-3 { animation-duration: 0.5s; height: 80%; }
+.bar-4 { animation-duration: 0.6s; height: 40%; }
+
+/* Meta da Música */
+.song-meta {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.song-details {
+    overflow: hidden;
+    padding-right: 16px;
+}
+
+.song-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-artist {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Botões do Player */
+.btn-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px; /* Tamanho de toque confortável */
+    border-radius: 50%;
+    transition: var(--transition-quick);
+}
+
+.btn-icon:hover {
+    color: var(--accent-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.favorite-heart {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    transition: fill 0.3s ease, stroke 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-icon.active .favorite-heart {
+    fill: var(--accent-primary);
+    stroke: var(--accent-primary);
+    filter: drop-shadow(0 0 4px var(--accent-glow));
+    transform: scale(1.15);
+}
+
+/* Barra de Progresso */
+.progress-container {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--accent-glow);
+    transition: transform 0.2s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+}
+
+.slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: none;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--accent-glow);
+    transition: transform 0.2s;
+}
+
+.slider::-moz-range-thumb:hover {
+    transform: scale(1.3);
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+/* Controles */
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 24px;
+}
+
+.btn-icon-control {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition-quick);
+    position: relative;
+}
+
+.btn-icon-control:hover {
+    color: var(--accent-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-icon-control.active {
+    color: var(--accent-primary);
+    filter: drop-shadow(0 0 5px var(--accent-glow));
+}
+
+.btn-play-pause {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    color: var(--bg-gradient-2);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(255, 77, 109, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.btn-play-pause:hover {
+    transform: scale(1.08);
+    background: var(--accent-secondary);
+    color: var(--text-primary);
+    box-shadow: 0 8px 28px var(--accent-glow);
+}
+
+.btn-play-pause:active {
+    transform: scale(0.95);
+}
+
+.repeat-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: var(--accent-primary);
+    color: var(--text-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Controle de Volume */
+.volume-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 240px;
+    gap: 12px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.volume-container:hover {
+    opacity: 1;
+}
+
+.btn-icon-volume {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.volume-bar {
+    height: 3px;
+}
+
+/* Mensagem Pessoal */
+.message-card {
+    padding: 24px;
+    border-radius: var(--border-radius-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.message-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.message-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-style: italic;
+    min-height: 48px;
+    transition: opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   4. LIST PANEL & PYTHON HEART (COLUNA DIREITA)
+   ========================================================================== */
+.list-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.panel-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--text-primary);
+    border-left: 3px solid var(--accent-primary);
+    padding-left: 10px;
+}
+
+/* Playlist Card */
+.playlist-card {
+    padding: 24px;
+    max-height: 440px;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-items {
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 4px;
+}
+
+/* Item da Playlist */
+.playlist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    background: transparent;
+    transition: var(--transition-quick);
+    border: 1px solid transparent;
+}
+
+.playlist-item:hover {
+    background: var(--panel-bg-hover);
+    border-color: rgba(255, 255, 255, 0.04);
+}
+
+.playlist-item.active {
+    background: rgba(255, 77, 109, 0.08);
+    border-color: rgba(255, 77, 109, 0.15);
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.item-cover {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--border-radius-sm);
+    object-fit: cover;
+    background-color: var(--bg-gradient-1);
+}
+
+.item-details {
+    overflow: hidden;
+}
+
+.item-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s;
+}
+
+.playlist-item.active .item-title {
+    color: var(--accent-secondary);
+    font-weight: 600;
+}
+
+.item-artist {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.playlist-item.active .item-right {
+    color: var(--accent-secondary);
+}
+
+.item-fav-icon {
+    width: 14px;
+    height: 14px;
+    fill: var(--accent-primary);
+    display: none;
+}
+
+.playlist-item.is-fav .item-fav-icon {
+    display: block;
+}
+
+.item-play-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+/* Card Coração Python */
+.python-heart-card {
+    padding: 24px;
+}
+
+.python-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.python-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    background: rgba(226, 176, 126, 0.1);
+    color: var(--accent-gold);
+    border: 1px solid rgba(226, 176, 126, 0.2);
+    padding: 4px 10px;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    font-family: monospace;
+}
+
+.python-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.canvas-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-height: 400px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#heart-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.canvas-overlay {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 4, 11, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 77, 109, 0.15);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    color: var(--accent-secondary);
+    pointer-events: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.canvas-container:hover .canvas-overlay {
+    opacity: 1;
+    border-color: rgba(255, 77, 109, 0.3);
+}
+
+.python-code-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    margin-top: 10px;
+    margin-bottom: -4px;
+}
+
+.python-code-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-sm);
+    padding: 14px;
+    overflow-x: auto;
+}
+
+.python-code-box pre {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
+.app-footer {
+    text-align: center;
+    padding: 32px 0 16px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   6. KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 4px var(--accent-primary)); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 0 12px var(--accent-primary)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 4px var(--accent-primary)); }
+}
+
+@keyframes bounce {
+    0% { transform: scaleY(0.2); }
+    100% { transform: scaleY(1); }
+}
+
+/* Suporte para acessibilidade (redução de movimento) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-delay: 0s !important;
+        animation-duration: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+    }
+    .pulsing-heart {
+        animation: none !important;
+    }
+    .bar {
+        animation: none !important;
+        height: 60% !important;
+    }
+}
