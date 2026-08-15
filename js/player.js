@@ -70,8 +70,26 @@ class AudioPlayer {
             this.handleTrackEnded();
         });
 
+        // Rede de segurança: se o áudio REAL conseguir tocar de fato, garante que
+        // o sintetizador de fallback (caso tenha disparado por engano, ex: um erro
+        // passageiro de rede) seja desligado. Evita o synth tocar "por baixo" da
+        // música real, causando o ruído estático.
+        this.audio.addEventListener('playing', () => {
+            if (this.isSynthMode) {
+                this.isSynthMode = false;
+                this.stopSynthFallback();
+            }
+        });
+
         // Tratamento de Erro de carregamento (ex: offline, link quebrado ou sem permissão de CORS)
         this.audio.addEventListener('error', (e) => {
+            // Ignora erros passageiros: se o áudio já está tocando de verdade
+            // (ex: um 'error' disparado por um soluço de rede que se recuperou sozinho),
+            // não faz sentido ativar o sintetizador por cima da música que já está tocando.
+            if (!this.audio.paused && this.audio.currentTime > 0) {
+                console.warn("Erro de áudio ignorado (a faixa já está tocando normalmente).", e);
+                return;
+            }
             console.warn("Falha ao carregar áudio. Ativando Sintetizador de Fallback Romântico...", e);
             this.activateSynthFallback();
         });
