@@ -1,0 +1,142 @@
+/* ==========================================================================
+   RESPONSIVE STYLES & MOBILE OPTIMIZATIONS (IOS SAFARI FOCUS)
+   ========================================================================== */
+
+/* Telas Médias e Pequenas (Tablets e Smartphones) */
+@media (max-width: 900px) {
+    .app-grid {
+        grid-template-columns: 1fr; /* Muda para coluna única */
+        gap: 20px;
+    }
+    
+    .main-layout {
+        padding: 16px 16px 32px;
+    }
+}
+
+/* Foco específico para Smartphones (e.g. iPhone) */
+@media (max-width: 480px) {
+    /* Ajustes na Landing Page */
+    .landing-card {
+        padding: 32px 20px;
+        margin: auto 0;
+    }
+    
+    .landing-title {
+        font-size: 2.1rem;
+    }
+    
+    .landing-subtitle {
+        font-size: 1.05rem;
+    }
+    
+    /* Ajustes no Player */
+    .player-card {
+        padding: 20px;
+        border-radius: var(--border-radius-md);
+    }
+    
+    .cover-wrapper {
+        max-width: 240px;
+        margin-bottom: 20px;
+    }
+    
+    .song-title {
+        font-size: 1.2rem;
+    }
+    
+    .song-artist {
+        font-size: 0.85rem;
+    }
+    
+    /* Controles e Botões no Mobile */
+    .player-controls {
+        max-width: 280px;
+        margin-bottom: 20px;
+    }
+    
+    .btn-play-pause {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .btn-icon-control {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Otimizações de Toque Confortável para iOS */
+    .btn-icon, .btn-icon-control, .btn-play-pause, .btn-icon-volume {
+        /* Garante que nenhum botão de controle importante seja menor do que o mínimo recomendado de 44px */
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Seção de Playlist no Celular */
+    .playlist-card {
+        padding: 18px;
+        max-height: 380px; /* Reduz ligeiramente para não ficar muito comprido */
+    }
+    
+    .playlist-item {
+        padding: 8px 10px;
+    }
+    
+    .item-cover {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Seção do Coração Python */
+    .python-heart-card {
+        padding: 18px;
+    }
+}
+
+/* Otimização para iPhone Safe Areas e Browser UI do Safari */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    body {
+        /* Adiciona padding no topo e rodapé para evitar sobreposição da barra do Safari/status */
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    .main-layout {
+        /* Compensa a área segura inferior nos layouts */
+        padding-bottom: calc(40px + env(safe-area-inset-bottom));
+    }
+    
+    /* Garante que os controles do player não fiquem colados no fundo da tela no iOS */
+    .player-card {
+        padding-bottom: calc(24px + env(safe-area-inset-bottom) * 0.5);
+    }
+}
+
+/* Evitar Zoom Automático em inputs no Safari iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select,
+    textarea,
+    input {
+        font-size: 16px !important;
+    }
+}
+
+/* Ajuste fino para telas ultra-pequenas (iPhone SE antigo, etc) */
+@media (max-width: 350px) {
+    .landing-title {
+        font-size: 1.8rem;
+    }
+    
+    .cover-wrapper {
+        max-width: 180px;
+    }
+    
+    .player-controls {
+        max-width: 240px;
+    }
+    
+    .btn-play-pause {
+        width: 48px;
+        height: 48px;
+    }
+}
