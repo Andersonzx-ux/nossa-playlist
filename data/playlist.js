@@ -1796,24 +1796,30 @@ E, de alguma forma,
 [01:15.28] Eu te amo, é paixão que não tem fim
 [01:21.02] Dou a vida por um beijo
 [01:23.17] Quero ter você pra mim
-[01:38.34] Morro de saudades quando você some
-[01:39.90] Me dá uma vontade de gritar seu nome
-[01:43.04] Quase uma loucura, uma obsessão
-[01:48.90] Pra me sentir feliz só tem uma saida
-[01:51.72] Fazer você ficar de vez na minha vida
-[01:54.12] Perto dos meus olhos e do coração
-[02:00.18] Eu te amo, eu preciso te dizer
-[02:06.26] Todo dia, toda noite o meu sonho é você
-[02:12.05] Eu te amo, é paixão que não tem fim
-[02:17.58] Dou a vida por um beijo
-[02:20.23] Quero ter você pra mim
-[02:23.41] Eu te amo, eu preciso te dizer
-[02:29.11] Todo dia, toda noite o meu sonho é você
-[02:35.03] Eu te amo, é paixão que não tem fim
-[02:40.61] Dou a vida por um beijo
-[02:43.16] Quero ter você pra mim
-[02:46.44] Dou a vida por um beijo
-[02:48.18] Quero ter você pra mim`,
+[01:58.81] Difícil es ya continuar así
+[02:05.70] Esta timidez ya no cabe en mí
+[02:12.42] Quisiera perder el miedo de hablar
+[02:19.20] Yo siempre te amé, debo confesar
+[02:26.06] Muero de tristeza cuando tu te escondes
+[02:29.63] Me llevan las ganas de gritar tu nombre
+[02:33.03] Mas que mi locura, eres mi obsesión
+[02:39.55] Para ser feliz existe una salida
+[02:43.10] Tenerte a mi lado esta y otra vida
+[02:46.61] Cerca de mis ojos y mi corazón
+[02:53.14] Yo te amo
+[02:56.50] No lo puedo ya esconder
+[03:00.24] Cada día, cada noche necesito de tu piel
+[03:06.92] Yo te amo
+[03:10.07] Mi pasión no tiene fin
+[03:13.81] Doy mi vida por un beso, por que vivas junto a mí
+[03:20.23] Yo te amo
+[03:23.62] No lo puedo ya esconder
+[03:27.33] Cada día, cada noche necesito de tu piel
+[03:34.01] Yo te amo
+[03:37.04] Mi pasión no tiene fin
+[03:40.98] Doy mi vida por un beso, por que vivas junto a mí
+[03:48.70] Doy mi vida por un beso, por que vivas junto a mí
+[03:56.08] `,
         lyricsTranslation: ""
     },
     {
@@ -3514,7 +3520,7 @@ Porque o que eu sinto por você
         message: "Você se tornou a maior e mais bonita parte da minha vida. Tudo em mim parece fazer mais sentido desde que encontrei você.",
         duration: "5:25",
         favorite: false,
-        lyrics: `[00:23.85] Y-e-a-h...
+        lyrics: `
 [00:25.44] (Sunrise) There's a new sun arisin'
 [00:28.45] (In your eyes) I can see a new horizon
 [00:31.65] (Realize) That will keep me realizin'
