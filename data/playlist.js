@@ -5062,7 +5062,131 @@ Só nós dois. ❤️
 [03:08.58] Numa paixão eu sou mesmo assim
 [03:13.44] `,
         lyricsTranslation: ``
-    }
+     },
+    {
+        id: 40,
+        title: "Risk It All",
+        artist: "Bruno Mars",
+        album: "The Romantic",
+        cover: "assets/covers/40.png",
+        audio: "music/musica40.mp3",
+        message: "Por você, eu arriscaria tudo. Porque, no fim, ter você ao meu lado vale qualquer risco. ❤️",
+        duration: "3:25",
+        favorite: false,
+        lyrics: `[00:22.32] For just a chance to win your heart
+[00:27.81] You could set the bar
+[00:30.55] Beyond the stars
+[00:33.54] I'll do anything anything you ask me to
+[00:43.78] Say you want the moon watch me learn to fly
+[00:48.96] Ain't a mountain you could point to I wouldn't climb
+[00:54.69] It's crazy but it's true
+[00:57.52] There's nothing I won't do
+[01:00.59] I'd risk it all for you
+[01:07.04] To hold your hand and call you mine
+[01:12.18] I'm trynna be your man
+[01:14.96] 'Til the end of time
+[01:17.63] Oh i'll do anything, anything you ask me to
+[01:28.07] I would run through the fire just to be by your side
+[01:33.87] If your heart's on the line you could take mine
+[01:39.35] It's crazy but it's true
+[01:42.26] There's nothing I won't do
+[01:44.86] I'd risk it all for you
+[01:51.75] I would swim across the sea just to show you
+[01:57.37] Sacrifice my life just to hold you
+[02:02.63] I could go on and on to prove that you belong
+[02:07.60] Here in my arms
+[02:13.35] 
+[02:34.94] Say you want the moon watch me, learn to fly
+[02:40.65] Ain't a mountain you could point to I wouldn't climb
+[02:46.44] It's crazy but it's true. There's nothing I won't do
+[02:51.99] I'd risk it all for you
+[02:58.95] 
+[03:03.23] I'd risk it all for you
+[03:04.27] `,
+	    lyricsTranslation: `Apenas pela chance de conquistar seu coração
+
+Você poderia elevar o padrão além das estrelas
+
+Eu farei qualquer coisa
+
+Qualquer coisa que você me pedir
+
+
+
+Digamos que você queira a lua
+
+Me veja aprender a voar
+
+Não há nenhuma montanha que você possa apontar
+
+Que eu não escalaria
+
+É loucura, mas é verdade
+
+Não há nada que eu não faria
+
+Eu arriscaria tudo por você
+
+
+
+Segurar sua mão e te chamar de minha
+
+Quero ser seu homem até o fim dos tempos
+
+Oh, eu farei qualquer coisa
+
+Qualquer coisa que você me pedir
+
+
+
+Eu atravessaria um incêndio correndo
+
+Só para estar ao seu lado
+
+Se seu coração está em jogo
+
+Você poderia pegar o meu
+
+É loucura, mas é verdade
+
+Não há nada que eu não faria
+
+Eu arriscaria tudo por você
+
+
+
+Eu atravessaria o mar a nado só para te mostrar
+
+Sacrificaria minha vida só para te abraçar
+
+Eu poderia continuar indefinidamente
+
+Para provar que você pertence aqui, aos meus braços
+
+
+
+Digamos que você queira a lua
+
+Me veja aprender a voar
+
+Não há nenhuma montanha que você possa apontar
+
+Que eu não escalaria
+
+É loucura, mas é verdade
+
+Não há nada que eu não faria
+
+Eu arriscaria tudo por você
+
+
+
+É loucura, mas é verdade
+
+Não há nada que eu não faria
+
+Eu arriscaria tudo por você`
+}
 ];
 
 // Exporta se estiver em ambiente Node/CommonJS (para testes futuros, caso necessário)
